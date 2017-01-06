@@ -1,0 +1,18 @@
+1. Black box ta hocce amader main component. je route ei thakina ken amra ei
+component ta render korte hbe...
+2. Red border ta hocce navigation component. Eta main component er
+under e child component. Tar mane holo main component jokhn render hobe
+child component o render hobe tokhn...
+3. Then hocce orange box ta. Jokhn je route e thakbo tokhn sei
+route er component ke render korbe orange box ta...
+Mane holo jokhn timer page e jabo tokhn countdown component ke render korabo..
+jokhn timer page e jabo tokhn timer component ke show korabo...
+4. jokhn timer page e jabo :
+    timer component er moddhe 2ta sub component thakbe..
+    jokhn timer component load hobe tokhn sub component gulao render hobe..
+    subcomponent gula golo 1)clock jeta timer and countdown 2ta component ei use hobe..
+                                            2)control component blue box er .. etai timer and countdown component e
+                                            render hobe....
+
+
+5.This is our component hierarchy..
