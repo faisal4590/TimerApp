@@ -1,0 +1,86 @@
+testing hocce code er kono part test kora je thikmoto kaj kortece kina..
+1. 1st e google e michael jackson except likhe search dibo.. then github page e gie
+1ta script tag pabo.. otake html er body tag er ag die insert kore dibo..
+
+=> index.html :
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+  <h1>Hello World</h1>
+<script src="https://unpkg.com/expect/umd/expect.min.js"></script>
+</body>
+</html>
+
+2. now 1ta sample function die check korbo..
+suppose 1ta function likhlam jeta 2ta number er jogfol return korbe..
+
+oi github page e dekhte pabo je assertion dewa kisu.. ogula diei mainly test kora hoy..
+
+=> test.js :
+
+function add(a,b){
+  return a+b;
+}
+expect(add(3,5)).toBe(8);
+expect(add(-3,2)).toBeA('number');//konokisu number kina seta check kore
+
+console.log('All test is passed');
+
+ekhane 3,5 er jogfol 8 expect korteci.. tai eta run korle
+All test is passed dekhabe...
+
+but expect(add(3,5)).toBe(9); dile error dekhabe..
+
+evabei basically testing kaj kore....
+
+3. Anather example :
+
+function capitalizeWord(word){
+  if(!word || typeof word !== 'string'){
+    word = '';
+  }
+
+  return word.charAt(0).toUpperCase() + word.slice(1);
+}
+
+expect(capitalizeWord('faisal')).toBe('Faisal');//checked wheather the return string has a capital letter at the 1st position or not...
+
+expect(capitalizeWord('faisal')).toBeA('string');//checking wheather the return value is a string or not
+
+expect(capitalizeWord()).toBe('');//Checking wheather the function returns nothing or not
+
+console.log('All test is passed');
+
+
+-------- Necessary things to install ---------
+npm install karma@0.13.22 karma-chrome-launcher@0.2.2 karma-mocha@0.2.2 karma-mocha-reporter@2.0.0 karma-sourcemap-loader@0.3.7 karma-webpack@1.7.0 mocha@2.4.5 expect@1.14.0
+
+ei command ta run korabo...
+
+=> code for app.test.jsx file :
+
+var expect = require('expect');
+
+/*
+* michael jackson er expect library ke include kore nilam...
+* */
+describe('App',()=>{
+    it('should properly run tests',()=>{
+        expect(1).toBe(1);
+    });
+    /*
+     * it hocce mocha er 1ta command.. eta die mainly check korteci
+     * 1 pele seta 1 i hobe...
+     * describe use korlam tahole cmd te sundor format e test
+     * result output dibe......
+     * */
+});
+
+then cmd te npm test likhe enter dilei testing start hobe...
+
+config e kono problem hole "Configuring tests with webpack" video ta abar dekhbo...
