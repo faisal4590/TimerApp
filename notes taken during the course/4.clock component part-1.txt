@@ -1,0 +1,111 @@
+/......ei part e react-addons-test-utils install krci.. npm install react-addons-test-utils@version_number........./
+
+
+=> code for clock.jsx :
+
+var React = require('react');
+/*
+* clock component hobe 1ta simple presentational component.
+* eta props hisebe time input nibe...
+* and 1ta string output dibe jeta time ke second e prokash korbe,...
+* etar kono state maintain kora lagbena....
+* */
+
+var Clock = React.createClass({
+    formatSeconds : function (totalSeconds) {
+        var seconds = totalSeconds % 60;
+        //suppose ami 64 pathalam.. 64 mane 1 min and 4 second.. so 60 die mod kore 4 pacci... so seconds take pacci....
+
+        var minutes =Math.floor( totalSeconds / 60);
+
+        if(seconds < 10){
+            seconds = '0'+seconds;
+        }
+        if(minutes < 10){
+            minutes = '0'+minutes;
+        }
+
+        return minutes + ' : ' + seconds;
+
+    },
+    render: function () {
+        return (
+            <div>
+                <p>Hello world</p>
+            </div>
+        );
+    }
+});
+
+module.exports = Clock;
+
+=> code for Clock.test.jsx :
+
+var React = require('react');
+var ReactDOM = require('react-dom');
+var expect = require('expect');
+var $ = require('jQuery');
+var TestUtils = require('react-addons-test-utils');
+
+var Clock = require('Clock');
+
+describe('Clock', () => {
+    it('should exist', ()=> {
+        expect(Clock).toExist();
+        /*
+        * amr clock component e kisu ace kina seta age check kore nicci
+        * */
+    });
+    describe('formatSeconds', () =>{
+        it('should format seconds', ()=>{
+            var clock = TestUtils.renderIntoDocument(<Clock/>);
+            /*
+            * ei describe e ami test korbo ami jeta input dicci seta thikmoto second and
+            * minute e convert hocce kina...
+            * Clock.jsx file e Clock component er moddhe formatSeconds() function er moddhe
+            * second and minute ke convert korci...
+            * sejonno  describe('formatSeconds') likhe dilam jate oi function take point kore...
+            * now amr dorkar 1ta component ke render korano.. normally eta korar kono way nai..
+            * tai TestUtils.renderIntoDocument(<Clock/>); evabe render korlam...
+            *
+            *
+            * */
+
+            var seconds = 615; // 10 min and 15 seconds
+            var expectedResult = '10 : 15';
+            var actualResultThatComesBackAfterTesting = clock.formatSeconds(seconds);
+
+            expect(actualResultThatComesBackAfterTesting).toBe(expectedResult);
+            /*
+            * so ekhane 615 pathalam jeta amake 10 : 15 retutn korbe.. mane holo 10 minute 15 second...
+            *
+            * */
+
+        });
+
+        //another test
+        it('should format seconds when min/sec are less than 10', ()=>{
+            var clock = TestUtils.renderIntoDocument(<Clock/>);
+
+
+            var seconds = 61;
+            var expectedResult = '01 : 01';
+            var actualResultThatComesBackAfterTesting = clock.formatSeconds(seconds);
+
+            expect(actualResultThatComesBackAfterTesting).toBe(expectedResult);
+
+        });
+    });
+});
+
+=> aliases in webpack.config file :
+
+alias: {
+      Main: 'app/components/Main.jsx',
+      applicationStyles: 'app/styles/app.scss',
+      Navigation: 'app/components/Navigation.jsx',
+      Timer : 'app/components/Timer.jsx',
+      Countdown : 'app/components/Countdown.jsx',
+      Clock : 'app/components/Clock.jsx'
+
+    },
