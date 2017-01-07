@@ -1,16 +1,25 @@
-.top-bar, .top-bar ul{
-  background-color: $navigation-background;
+.top-bar, .top-bar ul {
+    background-color: $navigation-background;
 
 }
-.top-bar{
-  border: 3px solid #ac76ac;
+
+.top-bar {
+    border: 3px solid #ac76ac;
 }
-.top-bar{
-  .menu-text{
-    color: $nav-text-color;
-  }
-  .menu > li > a {
-    display: inline;
-  }
+
+.top-bar {
+    .menu-text {
+        color: $nav-text-color;
+    }
+    .menu > li > a {
+        display: inline;
+    }
+     .active-link {
+        border-bottom: 8px solid #ac76ac;
+        border-radius: 5px;
+        font-weight: bold;
+         color: #ff7457;
+         font-size:20px;
+    }
 }
 
