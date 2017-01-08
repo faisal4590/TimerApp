@@ -1,3 +1,5 @@
+1. code for countdown.jsx :
+
 var React = require('react');
 
 var Clock = require('Clock');
@@ -86,3 +88,4 @@ var Countdown = React.createClass({
 });
 
 module.exports = Countdown;
+
