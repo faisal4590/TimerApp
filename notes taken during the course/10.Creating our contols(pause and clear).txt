@@ -1,0 +1,94 @@
+1. code for Controls.jsx :
+
+var React = require('react');
+
+/*
+ * Controls component ta countdown pause/resume eta nie kaj korbe..
+ * so ei component e countdownStatus props ta pass kora hobe..
+ * countdownStatus jodi started hoy tahole pause button render korte hbe./.
+ * countdownStatus jodi stopped hoy tahole resume button render korte hbe...
+ * eta holo basic logic..............
+ * */
+var Controls = React.createClass({
+
+    propTypes: {
+        countdownStatus: React.PropTypes.string.isRequired
+    },
+
+    render: function () {
+        var {countdownStatus} = this.props;
+
+        var renderStartStopButton = ()=> {
+            /*
+             * amake check korte hbe countdownStatus = started/stopped konta..
+             * jsx code er moddhe if else check korar way nai.. tai 1ta function create korlam
+             * jeta return korbe countdownStatus..
+             * */
+            if (countdownStatus === 'started') {
+                return <button className="button secondary">Pause</button>
+            } else if (countdownStatus === 'paused') {
+                return <button className="button primary">Resume</button>
+            }
+        };
+
+        return (
+            <div className="controls">
+                {renderStartStopButton()}
+                <button className="button alert hollow">Clear
+                </button>
+            </div>
+
+        );
+    }
+});
+
+module.exports = Controls;
+
+2. Code for Controls.test.jsx :
+
+var React = require('react');
+var ReactDOM = require('react-dom');
+var expect = require('expect');
+var $ = require('jQuery');
+var TestUtils = require('react-addons-test-utils');
+
+var Controls = require('Controls');
+
+describe('Controls', ()=> {
+    it('should exist', ()=> {
+        expect(Controls).toExist();
+    });
+
+    describe('render', ()=> {
+        it('should render pause when countdownStatus is started', ()=> {
+            var controls = TestUtils.renderIntoDocument(<Controls countdownStatus={"started"}/>);
+            var $el = $(ReactDOM.findDOMNode(controls));
+
+            var $pauseButton = $el.find('button:contains(Pause)');
+            /*
+             * ami check korbo countDownStatus jokhn started tokhn pause button render hoccekina
+             * estUtils.renderIntoDocument(<Controls countdownStatus={"started"}/>); started mane pause kora jabe ekhn..
+             * so pause render howar kotha...
+             * $el.find('button:contains(Pause)'); eta 1ta specific jQuery selector..
+             * amr code e jekhane button tag pabe jar text = Pause setake tule anbe..
+             * jodi etake khuje pay tahole test successful....
+             *
+             * */
+
+            expect($pauseButton.length).toBe(1);
+
+        });
+
+        it('should render Resume when paused', ()=> {
+            var controls = TestUtils.renderIntoDocument(<Controls countdownStatus={"paused"}/>);
+            var $el = $(ReactDOM.findDOMNode(controls));
+
+            var $pauseButton = $el.find('button:contains(Resume)');
+
+
+            expect($pauseButton.length).toBe(1);
+
+        });
+    });
+
+});
