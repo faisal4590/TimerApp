@@ -17,7 +17,7 @@ describe('CountdownForm', ()=>{
         var spy = expect.createSpy();
         //1ta spy create korlam...
 
-        var countDownForm = TestUtils.renderIntoDocument(<CountdownForm onSetCountDown={spy}/>);
+        var countDownForm = TestUtils.renderIntoDocument(<CountdownForm onSetCountdown={spy}/>);
         var $el = $(ReactDOM.findDOMNode(countDownForm));
         //ager moto jquery die select korbo
 

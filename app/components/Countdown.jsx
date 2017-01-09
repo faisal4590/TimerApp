@@ -66,28 +66,7 @@ var Countdown = React.createClass({
     },
 
 
-    componentWillUnmount: function () {
-        /!*
-         * ei function ta automatically call hoy jokhn
-         * component dom theke remove hoy...
-         * mane component browser theke visually
-         * remove hye jay...
-         * *!/
 
-        console.log('Component removed form the dom');
-        alert('Are you sure want to leave this page?');
-        /!*
-         * now browser e page refresh korle countdown theke
-         * timer page e switch korle dekhte parbo je console tab e(developer tool)
-         * Component remove message ta dekhacce.. mane holo
-         * countdown page er component gula remove howar thik ag muhurte ei function ta call hoy..
-         *so now jodi countdown page theke onno page e jete chai tokhn age alert dibe
-         *  "Are you sure want to remove?"
-         * *!/
-
-        clearInterval(this.timer);
-        this.timer = undefined;
-    },
 
     componentWillMount: function () {
         /!*
@@ -117,6 +96,28 @@ var Countdown = React.createClass({
         alert('Component Mounted Successfully');
 
     },*/
+    componentWillUnmount: function () {
+
+        /** ei function ta automatically call hoy jokhn
+        * component dom theke remove hoy...
+        * mane component browser theke visually
+        * remove hye jay...*/
+
+
+       /* console.log('Component removed form the dom');
+        alert('Are you sure want to leave this page?');*/
+
+        /** now browser e page refresh korle countdown theke
+         * timer page e switch korle dekhte parbo je console tab e(developer tool)
+         * Component remove message ta dekhacce.. mane holo
+         * countdown page er component gula remove howar thik ag muhurte ei function ta call hoy..
+         *so now jodi countdown page theke onno page e jete chai tokhn age alert dibe
+         *  "Are you sure want to remove?"
+         */
+
+            clearInterval(this.timer);
+            this.timer = undefined;
+        },
 
     startTimer: function () {
         this.timer = setInterval(()=> {
@@ -182,6 +183,7 @@ var Countdown = React.createClass({
         };
         return (
             <div>
+                <h1 className="page-title">Countdown Application</h1>
                 <Clock totalSeconds={count}/>
                 {renderControlArea()}
             </div>
