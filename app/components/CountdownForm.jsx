@@ -36,6 +36,7 @@ var CountdownForm = React.createClass({
 
         }else{
             alert('Please enter a valid number between 0-9 >_<');
+            this.refs.seconds.value = '';
         }
 
 

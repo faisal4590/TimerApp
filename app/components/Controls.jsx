@@ -11,7 +11,7 @@ var Controls = React.createClass({
 
     propTypes: {
         countdownStatus: React.PropTypes.string.isRequired,
-        onStatusChange : React.PropTypes.func.isRequired
+        onStatusChange: React.PropTypes.func.isRequired
     },
 
     onStatusChange: function (newStatus) {
@@ -25,6 +25,17 @@ var Controls = React.createClass({
              * */
         }
     },
+
+    /*componentWillReceiveProps: function (newProps) {
+        /!*
+         * amader countdown 1 second por por update hoy..
+         * jmn countdownStatus = started hole countdown hote thake..
+         * now jokhn countdown hote thakbe tokhn proti second e countdownStatus
+         * kivabe update hote thake eta jodi jante chai tokhn ei lifecycle mehod use korbo..
+         *
+         * *!/
+        console.log('Component will receive props ', newProps.countdownStatus);
+    },*/
 
     render: function () {
         var {countdownStatus} = this.props;
