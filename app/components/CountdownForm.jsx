@@ -30,7 +30,7 @@ var CountdownForm = React.createClass({
              *
              * */
             this.refs.seconds.value = '';
-            this.props.onSetCountDown(parseInt(stringSeconds,10));
+            this.props.onSetCountdown(parseInt(stringSeconds,10));
             //10 mane hocce decimal.. mane user binay value dileo otake
             //int e convert kore nibe....
 
