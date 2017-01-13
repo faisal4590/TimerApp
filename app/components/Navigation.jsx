@@ -1,5 +1,5 @@
-var React = require ( 'react' );
-var {Link, IndexLink} = require ( 'react-router' );
+var React = require('react');
+var {Link, IndexLink} = require('react-router');
 
 var Navigation = () => {
     return (
@@ -16,7 +16,10 @@ var Navigation = () => {
 
                     <li>
                         <Link to="/countdown" activeClassName="active-link"> Countdown </Link>
+                    </li>
 
+                    <li>
+                        <Link to="/about" activeClassName="active-link"> About </Link>
                     </li>
                 </ul>
             </div>
@@ -24,7 +27,8 @@ var Navigation = () => {
             <div className="top-bar-right">
                 <ul className="menu">
                     <li className="menu-text">
-                        Created by <a href="https://www.facebook.com/optimized.faisal.526875" target="_blank">Faisal Ibn Aziz</a>
+                        Created by <a href="https://www.facebook.com/optimized.faisal.526875" target="_blank">Faisal Ibn
+                        Aziz</a>
                     </li>
                 </ul>
             </div>

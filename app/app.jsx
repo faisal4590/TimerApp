@@ -5,6 +5,7 @@ var Main = require('Main');
 
 var Timer = require('Timer');
 var Countdown = require('Countdown');
+var About = require('About');
 
 // Load foundation
 require('style!css!foundation-sites/dist/css/foundation.min.css');
@@ -18,6 +19,7 @@ ReactDOM.render(
         <Route path="/" component={Main}>
             <Route path="countdown" component={Countdown}/>
                 <IndexRoute component={Timer}/>
+            <Route path="about" component={About}/>
         </Route>
     </Router>,
     /*
@@ -26,5 +28,7 @@ ReactDOM.render(
     * Now amr index page hobe Timer .. tai Timer ke index route dilam..
     * and countdown component add korlam....
     * */
-    document.getElementById('app')
+document.getElementById('app')
 );
+
+
