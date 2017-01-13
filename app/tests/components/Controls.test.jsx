@@ -13,10 +13,10 @@ describe('Controls', ()=> {
 
     describe('render', ()=> {
         it('should render pause when countdownStatus is started', ()=> {
-            var controls = TestUtils.renderIntoDocument(<Controls countdownStatus={"started"}/>);
+            var controls = TestUtils.renderIntoDocument(<Controls countdownStatus="started"/>);
             var $el = $(ReactDOM.findDOMNode(controls));
-
             var $pauseButton = $el.find('button:contains(Pause)');
+
             /*
              * ami check korbo countDownStatus jokhn started tokhn pause button render hoccekina
              * estUtils.renderIntoDocument(<Controls countdownStatus={"started"}/>); started mane pause kora jabe ekhn..
@@ -32,11 +32,9 @@ describe('Controls', ()=> {
         });
 
         it('should render Resume when paused', ()=> {
-            var controls = TestUtils.renderIntoDocument(<Controls countdownStatus={"paused"}/>);
+            var controls = TestUtils.renderIntoDocument(<Controls countdownStatus="paused"/>);
             var $el = $(ReactDOM.findDOMNode(controls));
-
-            var $pauseButton = $el.find('button:contains(Resume)');
-
+            var $pauseButton = $el.find('button:contains(Start)');
 
             expect($pauseButton.length).toBe(1);
 

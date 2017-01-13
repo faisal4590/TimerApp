@@ -1,3 +1,9 @@
+// this is nearly similar as countdown application..
+//eta aro easy cause just count ke 1 kore barate thakbo
+//and etar kono end case nie tension kora lagbena.. ajibon cholte thakbe..
+
+1.code for Timer.jsx :
+
 var React = require('react');
 var Clock = require('Clock');
 var Controls = require('Controls');
@@ -65,3 +71,4 @@ var Timer = React.createClass({
 });
 
 module.exports = Timer;
+
