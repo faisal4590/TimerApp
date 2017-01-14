@@ -8,25 +8,25 @@ var React = require('react');
 
 var Clock = React.createClass({
     getDefaultProps: function () {
-        totalSeconds: 0
+        totalSeconds : 0
     },
 
-    propTypes : {
-        totalSeconds  :React.PropTypes.number
+    propTypes: {
+        totalSeconds: React.PropTypes.number
     },
 
-
-    formatSeconds : function (totalSeconds) {
+    formatSeconds: function (totalSeconds) {
         var seconds = totalSeconds % 60;
-        //suppose ami 64 pathalam.. 64 mane 1 min and 4 second.. so 60 die mod kore 4 pacci... so seconds take pacci....
+        // suppose ami 64 pathalam.. 64 mane 1 min and 4 second.. so 60 die mod kore 4
+        // pacci... so seconds take pacci....
 
-        var minutes =Math.floor( totalSeconds / 60);
+        var minutes = Math.floor(totalSeconds / 60);
 
-        if(seconds < 10){
-            seconds = '0'+seconds;
+        if (seconds < 10) {
+            seconds = '0' + seconds;
         }
-        if(minutes < 10){
-            minutes = '0'+minutes;
+        if (minutes < 10) {
+            minutes = '0' + minutes;
         }
 
         return minutes + ' : ' + seconds;

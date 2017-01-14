@@ -11,13 +11,11 @@ var CountdownForm = require('CountdownForm');
 
 var Controls = require('Controls');
 
-
 var Countdown = React.createClass({
 
     getInitialState: function () {
         return {
-            count: 0,
-            countdownStatus: 'stopped'//initially clock stop thakbe
+            count: 0, countdownStatus: 'stopped' //initially clock stop thakbe
 
         };
     },
@@ -40,17 +38,17 @@ var Countdown = React.createClass({
 
         if (this.state.countdownStatus !== previousState.countdownStatus) {
             switch (this.state.countdownStatus) {
-                case 'started' :
+                case 'started':
                     this.startTimer();
                     break;
-                /*
+                    /*
                  * jokhn clock started state e jabe tokhn timer start
                  * kore dilam...
                  * */
 
-                case 'stopped' :
+                case 'stopped':
                     this.setState({count: 0});
-                case 'paused' :
+                case 'paused':
                     clearInterval(this.timer);
                     this.timer = undefined;
                     break;
@@ -103,8 +101,7 @@ var Countdown = React.createClass({
         * mane component browser theke visually
         * remove hye jay...*/
 
-
-       /* console.log('Component removed form the dom');
+        /* console.log('Component removed form the dom');
         alert('Are you sure want to leave this page?');*/
 
         /** now browser e page refresh korle countdown theke
@@ -115,16 +112,18 @@ var Countdown = React.createClass({
          *  "Are you sure want to remove?"
          */
 
-            clearInterval(this.timer);
-            this.timer = undefined;
-        },
+        clearInterval(this.timer);
+        this.timer = undefined;
+    },
 
     startTimer: function () {
-        this.timer = setInterval(()=> {
+        this.timer = setInterval(() => {
             var newCount = this.state.count - 1;
             this.setState({
-                count: newCount >= 0 ? newCount : 0
-                /*
+                count: newCount >= 0
+                    ? newCount
+                    : 0
+                    /*
                  * ekhane mainly setInterval 1 sec(1000 ms) kore dilam..
                  * so 1 second por por clock countdown korte thakbe..
                  * this.state.count - 1; mane count-- .. 1 sec kore komte thakbe..
@@ -135,38 +134,32 @@ var Countdown = React.createClass({
 
             });
 
-            if(newCount === 0){
+            if (newCount === 0) {
                 this.setState({
                     /*
                     * 0 sec e chole asle countdownStatus = stopped
                     * o kore dite hbe.. nahole component update hotei thakbe..
                     *
                     * */
-                    countdownStatus : 'stopped'
+                    countdownStatus: 'stopped'
                 });
             }
-
 
         }, 1000);
     },
 
     handleSetCountdown: function (seconds) {
-        this.setState({
-            count: seconds,
-            countdownStatus: 'started'
-        });
+        this.setState({count: seconds, countdownStatus: 'started'});
     },
 
     handleStatusChange: function (newStatus) {
-        this.setState({
-            countdownStatus: newStatus
-        });
+        this.setState({countdownStatus: newStatus});
     },
 
     render: function () {
         var {count, countdownStatus} = this.state;
 
-        var renderControlArea = ()=> {
+        var renderControlArea = () => {
             /*
              * jokhn amar countdownStatus == started hobe tokhn ami
              * contol form 2ta show korabo... (pause and resume)
@@ -176,7 +169,9 @@ var Countdown = React.createClass({
              *
              * */
             if (countdownStatus !== 'stopped') {
-                return <Controls countdownStatus={countdownStatus} onStatusChange={this.handleStatusChange}/>;
+                return <Controls
+                    countdownStatus={countdownStatus}
+                    onStatusChange={this.handleStatusChange}/>;
             } else {
                 return <CountdownForm onSetCountdown={this.handleSetCountdown}/>;
             }
@@ -184,8 +179,7 @@ var Countdown = React.createClass({
         return (
             <div>
                 <h1 className="page-title">Countdown Application</h1>
-                <Clock totalSeconds={count}/>
-                {renderControlArea()}
+                <Clock totalSeconds={count}/> {renderControlArea()}
             </div>
         );
     }
