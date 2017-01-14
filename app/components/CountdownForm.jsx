@@ -12,6 +12,9 @@ var CountdownForm = React.createClass({
         e.preventDefault();
 
         var stringSeconds = this.refs.seconds.value;
+        
+        console.log('input count', $('input').length);
+
         /*
          * refs attribute use kore jsx e kono element ke target kora hoy jmn
          * php te name attribute use kore kora hoicilo...
